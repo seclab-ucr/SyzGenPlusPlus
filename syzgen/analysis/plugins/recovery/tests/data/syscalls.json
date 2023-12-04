@@ -1,0 +1,715 @@
+[
+    {
+        "syscall": {
+            "CallName": "write",
+            "SubName": "rdma_cm_Group10_0_syzgen",
+            "status": 2,
+            "args": [
+              {
+                "type": "resource",
+                "offset": 0,
+                "size": 4,
+                "typename": "fd",
+                "data": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "access": true,
+                "name": "rdma_cm_fd",
+                "parent": "fd"
+              },
+              {
+                "type": "ptr",
+                "offset": 0,
+                "size": 8,
+                "typename": "data",
+                "optional": false,
+                "dir": 1,
+                "ref": {
+                  "type": "struct",
+                  "offset": 0,
+                  "size": 56,
+                  "typename": null,
+                  "fields": [
+                    {
+                      "type": "const",
+                      "offset": 0,
+                      "size": 4,
+                      "typename": null,
+                      "data": [
+                        16,
+                        0,
+                        0,
+                        0
+                      ],
+                      "access": true
+                    },
+                    {
+                      "type": "buffer",
+                      "offset": 4,
+                      "size": 2,
+                      "typename": null,
+                      "data": [
+                        0,
+                        0
+                      ],
+                      "access": true
+                    },
+                    {
+                      "type": "range",
+                      "offset": 6,
+                      "size": 2,
+                      "typename": null,
+                      "data": [
+                        252,
+                        255
+                      ],
+                      "access": true,
+                      "min": 4,
+                      "max": 65535,
+                      "stride": 1
+                    },
+                    {
+                      "type": "buffer",
+                      "offset": 8,
+                      "size": 8,
+                      "typename": null,
+                      "data": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        240,
+                        255,
+                        255
+                      ],
+                      "access": true
+                    },
+                    {
+                      "type": "buffer",
+                      "offset": 16,
+                      "size": 8,
+                      "typename": null,
+                      "data": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        255,
+                        255
+                      ],
+                      "access": true
+                    },
+                    {
+                      "type": "flag",
+                      "offset": 24,
+                      "size": 2,
+                      "typename": null,
+                      "data": [
+                        10,
+                        0
+                      ],
+                      "access": true,
+                      "values": [
+                        10,
+                        2
+                      ]
+                    },
+                    {
+                      "type": "known",
+                      "offset": 26,
+                      "size": 14,
+                      "typename": null,
+                      "name": "sockaddr_storage_internal"
+                    },
+                    {
+                      "type": "buffer",
+                      "offset": 40,
+                      "size": 12,
+                      "typename": null,
+                      "data": [
+                        255,
+                        255,
+                        255,
+                        255,
+                        255,
+                        255,
+                        255,
+                        255,
+                        255,
+                        255,
+                        255,
+                        255
+                      ],
+                      "access": true
+                    },
+                    {
+                      "type": "const",
+                      "offset": 52,
+                      "size": 4,
+                      "typename": null,
+                      "data": [
+                        0,
+                        0,
+                        0,
+                        0
+                      ],
+                      "access": true
+                    }
+                  ],
+                  "isArray": false
+                }
+              },
+              {
+                "type": "range",
+                "offset": 0,
+                "size": 8,
+                "typename": "size",
+                "data": [
+                  0,
+                  224,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255
+                ],
+                "access": true,
+                "path": [
+                  1
+                ],
+                "bitSize": 8,
+                "min": 8,
+                "max": 18446744073709551615,
+                "stride": 1
+              }
+            ]
+          },
+        "result": {
+            "status": 2, 
+            "CallName": "write", 
+            "args": [
+              {
+                "access": true, 
+                "typename": "fd", 
+                "name": "rdma_cm_fd", 
+                "parent": "fd", 
+                "offset": 0, 
+                "data": [
+                  0, 
+                  0, 
+                  0, 
+                  0
+                ], 
+                "type": "resource", 
+                "size": 4
+              }, 
+              {
+                "ref": {
+                  "isArray": false, 
+                  "fields": [
+                    {
+                      "data": [
+                        16, 
+                        0, 
+                        0, 
+                        0
+                      ], 
+                      "access": true, 
+                      "typename": null, 
+                      "offset": 0, 
+                      "type": "const", 
+                      "size": 4
+                    }, 
+                    {
+                      "data": [
+                        0, 
+                        0
+                      ], 
+                      "access": true, 
+                      "typename": null, 
+                      "offset": 4, 
+                      "type": "buffer", 
+                      "size": 2
+                    }, 
+                    {
+                      "access": true, 
+                      "typename": null, 
+                      "max": 65535, 
+                      "stride": 1, 
+                      "offset": 6, 
+                      "data": [
+                        252, 
+                        255
+                      ], 
+                      "min": 4, 
+                      "type": "range", 
+                      "size": 2
+                    }, 
+                    {
+                      "data": [
+                        0, 
+                        0, 
+                        0, 
+                        0, 
+                        0, 
+                        240, 
+                        255, 
+                        255
+                      ], 
+                      "access": true, 
+                      "typename": null, 
+                      "offset": 8, 
+                      "type": "buffer", 
+                      "size": 8
+                    }, 
+                    {
+                      "data": [
+                        0, 
+                        0, 
+                        0, 
+                        0, 
+                        0, 
+                        0, 
+                        255, 
+                        255
+                      ], 
+                      "access": true, 
+                      "typename": null, 
+                      "offset": 16, 
+                      "type": "buffer", 
+                      "size": 8
+                    }, 
+                    {
+                      "typename": null, 
+                      "size": 16, 
+                      "type": "known", 
+                      "name": "sockaddr_storage", 
+                      "offset": 24
+                    }, 
+                    {
+                      "data": [
+                        255, 
+                        255, 
+                        255, 
+                        255, 
+                        255, 
+                        255, 
+                        255, 
+                        255, 
+                        255, 
+                        255, 
+                        255, 
+                        255
+                      ], 
+                      "access": true, 
+                      "typename": null, 
+                      "offset": 40, 
+                      "type": "buffer", 
+                      "size": 12
+                    }, 
+                    {
+                      "data": [
+                        0, 
+                        0, 
+                        0, 
+                        0
+                      ], 
+                      "access": true, 
+                      "typename": null, 
+                      "offset": 52, 
+                      "type": "const", 
+                      "size": 4
+                    }
+                  ], 
+                  "typename": null, 
+                  "offset": 0, 
+                  "type": "struct", 
+                  "size": 56
+                }, 
+                "optional": false, 
+                "typename": "data", 
+                "offset": 0, 
+                "type": "ptr", 
+                "dir": 1, 
+                "size": 8
+              }, 
+              {
+                "max": 18446744073709551615, 
+                "offset": 0, 
+                "path": [
+                  1
+                ], 
+                "stride": 1, 
+                "data": [
+                  0, 
+                  224, 
+                  255, 
+                  255, 
+                  255, 
+                  255, 
+                  255, 
+                  255
+                ], 
+                "size": 8, 
+                "min": 8, 
+                "bitSize": 8, 
+                "access": true, 
+                "typename": "size", 
+                "type": "range"
+              }
+            ], 
+            "SubName": "rdma_cm_Group10_0_syzgen"
+        }
+    },
+    {
+      "syscall": {
+        "CallName": "write",
+        "SubName": "rdma_cm_Group10_0_syzgen",
+        "status": 2,
+        "args": [
+          {
+            "type": "resource",
+            "offset": 0,
+            "size": 4,
+            "typename": "fd",
+            "data": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "access": true,
+            "name": "rdma_cm_fd",
+            "parent": "fd"
+          },
+          {
+            "type": "ptr",
+            "offset": 0,
+            "size": 8,
+            "typename": "data",
+            "optional": false,
+            "dir": 1,
+            "ref": {
+              "type": "struct",
+              "offset": 0,
+              "size": 56,
+              "typename": null,
+              "fields": [
+                {
+                  "type": "const",
+                  "offset": 0,
+                  "size": 4,
+                  "typename": null,
+                  "data": [
+                    16,
+                    0,
+                    0,
+                    0
+                  ],
+                  "access": true
+                },
+                {
+                  "type": "buffer",
+                  "offset": 4,
+                  "size": 2,
+                  "typename": null,
+                  "data": [
+                    0,
+                    0
+                  ],
+                  "access": true
+                },
+                {
+                  "type": "range",
+                  "offset": 6,
+                  "size": 2,
+                  "typename": null,
+                  "data": [
+                    252,
+                    255
+                  ],
+                  "access": true,
+                  "min": 4,
+                  "max": 65535,
+                  "stride": 1
+                },
+                {
+                  "type": "buffer",
+                  "offset": 8,
+                  "size": 8,
+                  "typename": null,
+                  "data": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    240,
+                    255,
+                    255
+                  ],
+                  "access": true
+                },
+                {
+                  "type": "buffer",
+                  "offset": 16,
+                  "size": 8,
+                  "typename": null,
+                  "data": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    255,
+                    255
+                  ],
+                  "access": true
+                },
+                {
+                  "type": "const",
+                  "offset": 24,
+                  "size": 2,
+                  "typename": null,
+                  "data": [
+                    10,
+                    0
+                  ],
+                  "access": true
+                },
+                {
+                  "type": "known",
+                  "offset": 26,
+                  "size": 14,
+                  "typename": null,
+                  "name": "sockaddr_storage_internal"
+                },
+                {
+                  "type": "buffer",
+                  "offset": 40,
+                  "size": 12,
+                  "typename": null,
+                  "data": [
+                    255,
+                    255,
+                    255,
+                    255,
+                    255,
+                    255,
+                    255,
+                    255,
+                    255,
+                    255,
+                    255,
+                    255
+                  ],
+                  "access": true
+                },
+                {
+                  "type": "const",
+                  "offset": 52,
+                  "size": 4,
+                  "typename": null,
+                  "data": [
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  "access": true
+                }
+              ],
+              "isArray": false
+            }
+          },
+          {
+            "type": "range",
+            "offset": 0,
+            "size": 8,
+            "typename": "size",
+            "data": [
+              0,
+              224,
+              255,
+              255,
+              255,
+              255,
+              255,
+              255
+            ],
+            "access": true,
+            "path": [
+              1
+            ],
+            "bitSize": 8,
+            "min": 8,
+            "max": 18446744073709551615,
+            "stride": 1
+          }
+        ]
+      },
+    "result": {
+      "CallName": "write",
+      "SubName": "rdma_cm_Group10_0_syzgen",
+      "status": 2,
+      "args": [
+        {
+          "type": "resource",
+          "offset": 0,
+          "size": 4,
+          "typename": "fd",
+          "data": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "access": true,
+          "name": "rdma_cm_fd",
+          "parent": "fd"
+        },
+        {
+          "type": "ptr",
+          "offset": 0,
+          "size": 8,
+          "typename": "data",
+          "optional": false,
+          "dir": 1,
+          "ref": {
+            "type": "struct",
+            "offset": 0,
+            "size": 56,
+            "typename": null,
+            "fields": [
+              {
+                "type": "const",
+                "offset": 0,
+                "size": 4,
+                "typename": null,
+                "data": [
+                  16,
+                  0,
+                  0,
+                  0
+                ],
+                "access": true
+              },
+              {
+                "type": "buffer",
+                "offset": 4,
+                "size": 2,
+                "typename": null,
+                "data": [
+                  0,
+                  0
+                ],
+                "access": true
+              },
+              {
+                "type": "range",
+                "offset": 6,
+                "size": 2,
+                "typename": null,
+                "data": [
+                  252,
+                  255
+                ],
+                "access": true,
+                "min": 4,
+                "max": 65535,
+                "stride": 1
+              },
+              {
+                "type": "buffer",
+                "offset": 8,
+                "size": 8,
+                "typename": null,
+                "data": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  240,
+                  255,
+                  255
+                ],
+                "access": true
+              },
+              {
+                "type": "buffer",
+                "offset": 16,
+                "size": 8,
+                "typename": null,
+                "data": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  255,
+                  255
+                ],
+                "access": true
+              },
+              {
+                "type": "known",
+                "offset": 24,
+                "size": 28,
+                "typename": null,
+                "name": "sockaddr_in6"
+              },
+              {
+                "type": "const",
+                "offset": 52,
+                "size": 4,
+                "typename": null,
+                "data": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "access": true
+              }
+            ],
+            "isArray": false
+          }
+        },
+        {
+          "type": "range",
+          "offset": 0,
+          "size": 8,
+          "typename": "size",
+          "data": [
+            0,
+            224,
+            255,
+            255,
+            255,
+            255,
+            255,
+            255
+          ],
+          "access": true,
+          "path": [
+            1
+          ],
+          "bitSize": 8,
+          "min": 8,
+          "max": 18446744073709551615,
+          "stride": 1
+        }
+      ]
+    }
+  }
+]

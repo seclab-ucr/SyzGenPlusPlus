@@ -1,0 +1,306 @@
+[
+    {
+        "name": "sockaddr_in6",
+        "targets": ["linux", "android"],
+        "type": {
+            "type": "struct",
+            "offset": 0,
+            "size": 28,
+            "typename": null,
+            "fields": [
+                {
+                "type": "const",
+                "offset": 0,
+                "size": 2,
+                "typename": null,
+                "data": [
+                    10,
+                    0
+                ],
+                "access": true
+                },
+                {
+                "type": "buffer",
+                "offset": 2,
+                "size": 6,
+                "typename": null,
+                "data": [
+                    255,
+                    255,
+                    255,
+                    255,
+                    255,
+                    255
+                ],
+                "access": true
+                },
+                {
+                "type": "known",
+                "offset": 8,
+                "size": 16,
+                "typename": null,
+                "name": "ipv6_addr"
+                },
+                {
+                "type": "buffer",
+                "offset": 24,
+                "size": 4,
+                "typename": null,
+                "data": [
+                    255,
+                    255,
+                    255,
+                    255
+                ],
+                "access": true
+                }
+            ],
+            "isArray": false
+            }
+    },
+    {
+        "name": "sockaddr_in6",
+        "targets": ["linux", "android"],
+        "type": {
+            "type": "struct",
+            "offset": 0,
+            "size": 28,
+            "typename": null,
+            "fields": [
+              {
+                "type": "const",
+                "offset": 0,
+                "size": 2,
+                "typename": null,
+                "data": [
+                  10,
+                  0
+                ],
+                "access": true
+              },
+              {
+                "type": "known",
+                "offset": 2,
+                "size": 14,
+                "typename": null,
+                "name": "sockaddr_storage_internal"
+              },
+              {
+                "type": "buffer",
+                "offset": 16,
+                "size": 12,
+                "typename": null,
+                "data": [
+                  255,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255
+                ],
+                "access": true
+              }
+            ],
+            "isArray": false
+        }
+    },
+    {
+        "name": "sockaddr_in",
+        "targets": ["linux", "android"],
+        "type": {
+            "type": "struct",
+            "offset": 0,
+            "size": 16,
+            "typename": null,
+            "fields": [
+              {
+                "type": "const",
+                "offset": 0,
+                "size": 2,
+                "typename": null,
+                "data": [
+                  2,
+                  0
+                ],
+                "access": true
+              },
+              {
+                "type": "known",
+                "offset": 2,
+                "size": 14,
+                "typename": null,
+                "name": "sockaddr_storage_internal"
+              }
+            ],
+            "isArray": false
+        }
+    },
+    {
+        "name": "sockaddr_in",
+        "targets": ["linux", "android"],
+        "type": {
+          "type": "struct",
+          "offset": 0,
+          "size": 16,
+          "typename": null,
+          "fields": [
+            {
+              "type": "const",
+              "offset": 0,
+              "size": 2,
+              "typename": null,
+              "data": [
+                2,
+                0
+              ],
+              "access": true
+            },
+            {
+              "type": "buffer",
+              "offset": 2,
+              "size": 2,
+              "typename": null,
+              "data": [
+                255,
+                255
+              ],
+              "access": true
+            },
+            {
+              "type": "known",
+              "offset": 4,
+              "size": 4,
+              "typename": null,
+              "name": "ipv4_addr"
+            },
+            {
+              "type": "buffer",
+              "offset": 8,
+              "size": 8,
+              "typename": null,
+              "data": [
+                255,
+                255,
+                255,
+                255,
+                255,
+                255,
+                255,
+                255
+              ],
+              "access": true
+            }
+          ],
+          "isArray": false
+        }
+    },
+    {
+        "name": "sockaddr_ib",
+        "targets": ["linux", "android"],
+        "type": {
+            "type": "struct",
+            "offset": 0,
+            "size": 48,
+            "typename": null,
+            "fields": [
+              {
+                "type": "const",
+                "offset": 0,
+                "size": 2,
+                "typename": null,
+                "data": [
+                  27,
+                  0
+                ],
+                "access": true
+              },
+              {
+                "type": "known",
+                "offset": 2,
+                "size": 14,
+                "typename": null,
+                "name": "sockaddr_storage_internal"
+              },
+              {
+                "type": "buffer",
+                "offset": 16,
+                "size": 32,
+                "typename": null,
+                "data": [
+                  255,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255,
+                  255
+                ],
+                "access": true
+              }
+            ],
+            "isArray": false
+        }
+    },
+    {
+        "name": "sockaddr_storage",
+        "targets": ["linux", "android"],
+        "type": {
+            "type": "struct",
+            "offset": 0,
+            "size": 16,
+            "typename": null,
+            "fields": [
+              {
+                "type": "buffer",
+                "offset": 0,
+                "size": 2,
+                "typename": null,
+                "data": [
+                  255,
+                  255
+                ],
+                "access": true
+              },
+              {
+                "type": "known",
+                "offset": 2,
+                "size": 14,
+                "typename": null,
+                "name": "sockaddr_storage_internal"
+              }
+            ],
+            "isArray": false
+        }
+    }
+]

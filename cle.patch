@@ -1,0 +1,233 @@
+diff --git a/cle/backends/macho/macho.py b/cle/backends/macho/macho.py
+index 2376758..ac75e93 100644
+--- a/cle/backends/macho/macho.py
++++ b/cle/backends/macho/macho.py
+@@ -17,7 +17,7 @@ import archinfo
+ from .macho_load_commands import LoadCommands as LC
+ 
+ from .section import MachOSection
+-from .symbol import SymbolTableSymbol, AbstractMachOSymbol, DyldBoundSymbol
++from .symbol import SymbolTableSymbol, AbstractMachOSymbol, DyldBoundSymbol, RelocSymbol
+ from .segment import MachOSegment
+ from .binding import BindingHelper, read_uleb, MachORelocation
+ from .. import Backend, register_backend, AT
+@@ -87,12 +87,14 @@ class MachO(Backend):
+ 
+     def __init__(self, *args, **kwargs):
+         l.warning('The Mach-O backend is not well-supported. Good luck!')
++        # Check https://github.com/aidansteele/osx-abi-macho-file-format-reference for details
++        l.warning('Modified by @CwT')
+ 
+         super().__init__(*args, **kwargs)
+         self.symbols = SymbolList(key=self._get_symbol_relative_addr)
+ 
+         self.struct_byteorder = None  # holds byteorder for struct.unpack(...)
+-        self._mapped_base = None # temporary holder für mapped base derived via loading
++        self._mapped_base = 0 # temporary holder für mapped base derived via loading
+         self.cputype = None
+         self.cpusubtype = None
+         self.filetype = None
+@@ -140,10 +142,10 @@ class MachO(Backend):
+ 
+             self.pie = bool(self.flags & 0x200000)  # MH_PIE
+ 
+-            if not bool(self.flags & 0x80):  # ensure MH_TWOLEVEL
+-                l.error("Binary is not using MH_TWOLEVEL namespacing."
+-                        "This isn't properly implemented yet and will degrade results in unpredictable ways."
+-                        "Please open an issue if you encounter this with a binary you can share")
++            # if not bool(self.flags & 0x80):  # ensure MH_TWOLEVEL
++            #     l.error("Binary is not using MH_TWOLEVEL namespacing."
++            #             "This isn't properly implemented yet and will degrade results in unpredictable ways."
++            #             "Please open an issue if you encounter this with a binary you can share")
+ 
+             # determine architecture
+             arch_ident = self._detect_arch_ident()
+@@ -215,12 +217,15 @@ class MachO(Backend):
+                     major = (minos >> (8 * 2)) & 0xFFFF
+                     self._minimum_version = (major, minor, patch)
+                     l.info("Found minimum version %s", ".".join([str(i) for i in self._minimum_version]))
++                elif cmd == LC.LC_DYSYMTAB:  # LC_DYSYMTAB
++                    self._load_lc_dysymtab(binary_file, offset)
+                 else:
+                     try:
+                         command_name = LC(cmd)
+                         l.warning(f"{str(command_name)} is not handled yet")
+                     except ValueError:
+                         l.error(f"Command {hex(cmd)} is not recognized!")
++                    self._assert_unencrypted(binary_file, offset)
+                 # update bookkeeping
+                 offset += size
+ 
+@@ -241,6 +246,8 @@ class MachO(Backend):
+         self._parse_symbols(binary_file)
+         l.info("Parsing module init/term function pointers")
+         self._parse_mod_funcs()
++        self._parse_relocations()
++        self.mapped_base = self._mapped_base
+ 
+         text_segment = self.find_segment_by_name("__TEXT")
+         if not text_segment is None:
+@@ -568,6 +575,8 @@ class MachO(Backend):
+         elif flavor == 1 and self.arch.bits == 64 or flavor == 6:
+             # ARM_THREAD_STATE or ARM_UNIFIED_THREAD_STATE or ARM_THREAD_STATE64
+             blob = self._unpack("33Q", f, offset + 16, 264)  # parses only until __pc
++        elif flavor == 4 and self.arch.bits == 64:
++            blob = self._unpack("17Q", f, offset + 16, 136)  # parses only until __pc
+         else:
+             l.error("Unknown thread flavor: %d", flavor)
+             raise CLECompatibilityError()
+@@ -622,6 +631,56 @@ class MachO(Backend):
+         self.symtab_nsyms = nsyms
+         self.symtab_offset = symoff
+ 
++    def _load_lc_dysymtab(self, f, offset):
++        """
++        Handles loading of the dynamic symbol table
++        :param f: input file
++        :param offset: offset to the LC_DYSYMTAB structure
++        :return:
++        """
++        def createRelSymbol(address, ref):
++            info = ref >> 24
++            return RelocSymbol(False, address, ref&0xffffff, (info&0x1) == 1, (info&0x6)>>1, \
++                (info&0x8) != 0, (info&0xf0) >> 4)
++
++        def createLocRelSymbol(address, value):
++            # addr = address&0xffffff
++            info = address >> 24
++            # rtype=info&0xf
++            # rlength = (info&0x30)>>4
++            # rpcrel = (info&0x40)>>6
++            return RelocSymbol(True, address&0xffffff, 0, (info&0x40)>>6, (info&0x30)>>4, False, \
++                info&0xf, value)
++
++        extreloff, nextrel = self._unpack("2I", f, offset + 0x40, 8)
++
++        self.extreltab = dict()
++        # load external relocations
++        for i in range(nextrel):
++            address, ref = self._unpack("2I", f, extreloff + i * 8, 8)
++            if address&0x80000000 == 0:
++                extrel = createRelSymbol(address, ref)
++            else:
++                extrel = createLocRelSymbol(address, ref)
++            self.extreltab[extrel.addr] = extrel
++
++        # load local relocations
++        locreloff, nlocrel = self._unpack("2I", f, offset + 0x48, 8)
++
++        self.locreltab = dict()
++        for i in range(nlocrel):
++            address, value = self._unpack("2I", f, locreloff + i * 8, 8)
++            if address&0x80000000 == 0:
++                locrel = createRelSymbol(address, value)
++            else:
++                locrel = createLocRelSymbol(address, value)
++            self.locreltab[locrel.addr] = locrel
++
++    def _parse_relocations(self):
++        for _, extrelsym in self.extreltab.items():
++            if extrelsym.is_external:
++                extrelsym.symbol = self.get_symbol_by_insertion_order(extrelsym.referenced_symbol_index)
++
+     def _parse_symbols(self,f):
+ 
+         # parse the symbol entries and create (unresolved) MachOSymbols.
+@@ -742,7 +801,8 @@ class MachO(Backend):
+             #  (segment has access set to no access)
+             #  This optimization is here as otherwise several GB worth of zeroes would clutter our memory
+             l.info("Found PAGEZERO, skipping backer for memory conservation")
+-        elif seg.filesize > 0:
++        elif seg.memsize > 0:
++        # elif seg.filesize > 0:
+             # Append segment data to memory
+             blob = self._read(f, seg.offset, seg.filesize)
+             if seg.filesize < seg.memsize:
+diff --git a/cle/backends/macho/section.py b/cle/backends/macho/section.py
+index 7dc3d2b..46a68f1 100644
+--- a/cle/backends/macho/section.py
++++ b/cle/backends/macho/section.py
+@@ -42,6 +42,8 @@ class MachOSection(Section):
+         self.reserved2 = r2
+         self.parent_segment = parent_segment
+ 
++        self.name = self.sectname
++
+     @property
+     def type(self):
+         return self.flags & TYPE_MASK
+diff --git a/cle/backends/macho/symbol.py b/cle/backends/macho/symbol.py
+index 9bbf38b..6112de1 100644
+--- a/cle/backends/macho/symbol.py
++++ b/cle/backends/macho/symbol.py
+@@ -347,3 +347,56 @@ class BindingSymbol(AbstractMachOSymbol):
+     @property
+     def library_ordinal(self):
+         return self.lib_ordinal
++
++
++class RelocSymbol:
++    REFERENCE_FLAG_UNDEFINED_NON_LAZY = 0x0
++    REFERENCE_FLAG_UNDEFINED_LAZY = 0x1
++
++    def __init__(self, r_scattered, r_address, r_symbolnum, r_pcrel, r_length, r_extern, r_type, r_value=0):
++        self.r_scattered = r_scattered
++        self.r_address = r_address
++        self.r_symbolnum = r_symbolnum
++        self.r_pcrel = r_pcrel
++        self.r_length = r_length
++        self.r_extern = r_extern
++        self.r_type = r_type
++        self.r_value = r_value
++        self.symbol = None
++
++    @property
++    def addr(self):
++        return self.r_address
++
++    @property
++    def is_external(self):
++        return self.r_extern
++
++    @property
++    def size(self):
++        return 1 << self.r_length
++
++    @property
++    def is_relative_pc(self):
++        return self.r_pcrel
++
++    @property
++    def referenced_symbol_index(self):
++        """For indirect symbols n_value contains an index into the string table indicating the referenced
++        symbol's name"""
++        if self.is_external:
++            return self.r_symbolnum
++        else:
++            return None
++
++    @property
++    def is_reference_undefined_data(self):
++        if self.is_external:
++            return self.symbol.reference_type == RelocSymbol.REFERENCE_FLAG_UNDEFINED_NON_LAZY
++        return False
++
++    @property
++    def is_reference_undedefined_func(self):
++        if self.is_external:
++            return self.symbol.reference_type == RelocSymbol.REFERENCE_FLAG_UNDEFINED_LAZY
++        return False
+diff --git a/cle/loader.py b/cle/loader.py
+index 191e3b7..70d14e2 100644
+--- a/cle/loader.py
++++ b/cle/loader.py
+@@ -919,7 +919,8 @@ class Loader:
+         overlap with anything already loaded.
+         """
+         # this assumes that self.main_object exists, which should... definitely be safe
+-        if self.main_object.arch.bits < 32 or self.main_object.max_addr >= 2**(self.main_object.arch.bits-1):
++        # @CwT: for kernel binary, the base address is like 0xffff800000000000
++        if self.main_object.arch.bits < 32 or self.main_object.max_addr >= 2**self.main_object.arch.bits-1:
+             # HACK: On small arches, we should be more aggressive in packing stuff in.
+             gap_start = 0
+         else:

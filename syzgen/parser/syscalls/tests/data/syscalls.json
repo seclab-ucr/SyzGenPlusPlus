@@ -1,0 +1,179 @@
+[
+    {
+        "CallName": "write",
+        "SubName": "test_syzgen",
+        "status": 0,
+        "args": [
+          {
+            "type": "resource",
+            "offset": 0,
+            "size": 4,
+            "typename": "fd",
+            "data": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "access": true,
+            "name": "test_fd",
+            "parent": "fd"
+          },
+          {
+            "type": "ptr",
+            "offset": 0,
+            "size": 8,
+            "typename": "data",
+            "optional": false,
+            "dir": 1,
+            "ref": {
+              "type": "struct",
+              "offset": 0,
+              "size": 56,
+              "typename": null,
+              "fields": [
+                {
+                  "type": "const",
+                  "offset": 0,
+                  "size": 4,
+                  "typename": null,
+                  "data": [
+                    16,
+                    0,
+                    0,
+                    0
+                  ],
+                  "access": true
+                },
+                {
+                  "type": "buffer",
+                  "offset": 4,
+                  "size": 2,
+                  "typename": null,
+                  "data": [
+                    0,
+                    0
+                  ],
+                  "access": true
+                },
+                {
+                  "type": "range",
+                  "offset": 6,
+                  "size": 2,
+                  "typename": null,
+                  "data": [
+                    240,
+                    255
+                  ],
+                  "access": true,
+                  "min": 4,
+                  "max": 65535,
+                  "stride": 1
+                },
+                {
+                  "type": "buffer",
+                  "offset": 8,
+                  "size": 16,
+                  "typename": null,
+                  "data": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  "access": true
+                },
+                {
+                  "type": "flag",
+                  "offset": 24,
+                  "size": 2,
+                  "typename": null,
+                  "data": [
+                    10,
+                    0
+                  ],
+                  "access": true,
+                  "values": [
+                    10,
+                    2
+                  ]
+                },
+                {
+                  "type": "buffer",
+                  "offset": 26,
+                  "size": 30,
+                  "typename": null,
+                  "data": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  "access": true
+                }
+              ],
+              "isArray": false
+            }
+          },
+          {
+            "type": "buffer",
+            "offset": 0,
+            "size": 8,
+            "typename": "size",
+            "data": [
+              0,
+              16,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "access": true,
+            "path": [
+              1
+            ],
+            "bitSize": 8
+          }
+        ]
+      }
+]

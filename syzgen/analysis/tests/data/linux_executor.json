@@ -1,0 +1,9 @@
+[
+    {
+        "dynamic": true,
+        "timeout": 600,
+        "module": "ppp",
+        "name": "ioctl",
+        "syscall": {"status": 2, "CallName": "ioctl", "args": [{"access": true, "typename": "fd", "name": "ppp_fd", "parent": "fd", "offset": 0, "data": [0, 0, 0, 0], "type": "resource", "size": 4}, {"data": [62, 116, 4, 192], "access": true, "typename": "cmd", "offset": 0, "type": "const", "size": 4}, {"ref": {"access": true, "stride": 1, "max": 4294967295, "offset": 0, "data": [254, 255, 255, 255], "min": 2147483648, "type": "range", "size": 4}, "optional": false, "typename": "arg", "offset": 0, "type": "ptr", "dir": 3, "size": 8}], "SubName": "ppp_Groupc004743e_0"}
+    }
+]

@@ -1,0 +1,64 @@
+[
+    {
+        "write": [
+            "<__add__ <BVV 40>, <__add__ <read <__add__ <read <read <__add__ <read <__add__ <read <__add__ <read <__add__ <BVV 93568>, <BVS gs, 64>>>, <BVV 2024>>>, <BVV 40>>>, <BVV 2904>>>>, <BVV 8>>>, <BVV -2>>>"
+        ],
+        "read": {
+            "<__add__ <__add__ <read <__add__ <read <read <__add__ <read <__add__ <read <__add__ <read <__add__ <BVV 93568>, <BVS gs, 64>>>, <BVV 2024>>>, <BVV 40>>>, <BVV 2904>>>>, <BVV 8>>>, <BVV -2>>, <__lshift__ <__add__ <ZeroExt <BVV 32>, <__and__ <Extract <BVV 31>, <BVV 0>, <LShR <__add__ <Concat <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32736>, <BVS arg, 32768>>, <Extract <BVV 32751>, <BVV 32744>, <BVS arg, 32768>>, <Extract <BVV 32759>, <BVV 32752>, <BVS arg, 32768>>, <Extract <BVV 32767>, <BVV 32760>, <BVS arg, 32768>>>, <BVV 0>>, <BVV 0>>>, <BVV 63>>>, <BVV 4>>, <BVV 3>>, <BVV 8>>": [[2, 0, 0], 4],
+            "<__add__ <__add__ <read <__add__ <read <read <__add__ <read <__add__ <read <__add__ <read <__add__ <BVV 93568>, <BVS gs, 64>>>, <BVV 2024>>>, <BVV 40>>>, <BVV 2904>>>>, <BVV 8>>>, <BVV -2>>, <__lshift__ <__add__ <ZeroExt <BVV 32>, <__and__ <Extract <BVV 31>, <BVV 0>, <LShR <Concat <BVV 0>, <__add__ <Concat <Extract <BVV 32743>, <BVV 32736>, <BVS arg, 32768>>, <Extract <BVV 32751>, <BVV 32744>, <BVS arg, 32768>>, <Extract <BVV 32759>, <BVV 32752>, <BVS arg, 32768>>, <Extract <BVV 32767>, <BVV 32760>, <BVS arg, 32768>>>, <BVV 1>>>, <BVV 0>>>, <BVV 63>>>, <BVV 4>>, <BVV 3>>, <BVV 8>>": [[2, 0, 0, 4], 4]
+        },
+        "result": true
+    },
+    {
+        "write": [
+            "<__add__ <BVV 40>, <__add__ <read <__add__ <read <read <__add__ <read <__add__ <read <__add__ <read <__add__ <BVV 93568>, <BVS gs, 64>>>, <BVV 1024>>>, <BVV 40>>>, <BVV 2904>>>>, <BVV 8>>>, <BVV -2>>>"
+        ],
+        "read": {
+            "<__add__ <__add__ <read <__add__ <read <read <__add__ <read <__add__ <read <__add__ <read <__add__ <BVV 93568>, <BVS gs, 64>>>, <BVV 2024>>>, <BVV 40>>>, <BVV 2904>>>>, <BVV 8>>>, <BVV -2>>, <__lshift__ <__add__ <ZeroExt <BVV 32>, <__and__ <Extract <BVV 31>, <BVV 0>, <LShR <__add__ <Concat <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32743>, <BVS arg, 32768>>, <Extract <BVV 32743>, <BVV 32736>, <BVS arg, 32768>>, <Extract <BVV 32751>, <BVV 32744>, <BVS arg, 32768>>, <Extract <BVV 32759>, <BVV 32752>, <BVS arg, 32768>>, <Extract <BVV 32767>, <BVV 32760>, <BVS arg, 32768>>>, <BVV 0>>, <BVV 0>>>, <BVV 63>>>, <BVV 4>>, <BVV 3>>, <BVV 8>>": [[2, 0, 0], 4],
+            "<__add__ <__add__ <read <__add__ <read <read <__add__ <read <__add__ <read <__add__ <read <__add__ <BVV 93568>, <BVS gs, 64>>>, <BVV 2024>>>, <BVV 40>>>, <BVV 2904>>>>, <BVV 8>>>, <BVV -2>>, <__lshift__ <__add__ <ZeroExt <BVV 32>, <__and__ <Extract <BVV 31>, <BVV 0>, <LShR <Concat <BVV 0>, <__add__ <Concat <Extract <BVV 32743>, <BVV 32736>, <BVS arg, 32768>>, <Extract <BVV 32751>, <BVV 32744>, <BVS arg, 32768>>, <Extract <BVV 32759>, <BVV 32752>, <BVS arg, 32768>>, <Extract <BVV 32767>, <BVV 32760>, <BVS arg, 32768>>>, <BVV 1>>>, <BVV 0>>>, <BVV 63>>>, <BVV 4>>, <BVV 3>>, <BVV 8>>": [[2, 0, 0, 4], 4]
+        },
+        "result": false
+    },
+    {
+        "write": [
+            "<read <__add__ <read <__add__ <read <__add__ <BVS userClient, 64>, <BVV 304>>>, <BVV 24>>>, <BVV 24>>>",
+            "<__add__ <read <__add__ <read <__add__ <read <__add__ <BVS userClient, 64>, <BVV 304>>>, <BVV 24>>>, <BVV 24>>>, <BVV 8>>",
+            "<__add__ <read <__add__ <read <__add__ <read <__add__ <BVS userClient, 64>, <BVV 304>>>, <BVV 24>>>, <BVV 24>>>, <BVV 16>>"
+        ],
+        "read": {
+            "<read <__add__ <read <read <__add__ <read <__add__ <read <__add__ <BVS userClient, 64>, <BVV 304>>>, <BVV 24>>>, <BVV 24>>>>, <BVV 40>>>": [[2, 0], 4],
+            "<read <__add__ <read <__add__ <read <__add__ <read <__add__ <read <__add__ <BVS userClient, 64>, <BVV 304>>>, <BVV 24>>>, <BVV 24>>>, <BVV 8>>>, <BVV 40>>>": [[2, 0], 4],
+            "<read <__add__ <read <__add__ <read <__add__ <read <__add__ <read <__add__ <BVS userClient, 64>, <BVV 304>>>, <BVV 24>>>, <BVV 24>>>, <BVV 16>>>, <BVV 40>>>": [[2, 0], 4]
+        },
+        "result": true
+    },
+    {
+        "read": {
+            "<__add__ <read <BVV 18446744071641728568>>, <__lshift__ <__add__ <ZeroExt <BVV 32>, <__and__ <Extract <BVV 31>, <BVV 0>, <LShR <Concat <BVV 0>, <Extract <BVV 32615>, <BVV 32608>, <BVS data, 32768>>, <Extract <BVV 32623>, <BVV 32616>, <BVS data, 32768>>, <Extract <BVV 32631>, <BVV 32624>, <BVS data, 32768>>, <Extract <BVV 32639>, <BVV 32632>, <BVS data, 32768>>>, <BVV 0>>>, <BVV 63>>>, <BVV 4>>, <BVV 3>>, <BVV 6>>": [[1, 0, 16], 4]
+        },
+        "write": [
+            "<__add__ <BVV 38>, <read <BVV 18446744071641728568>>, <BVV 8>>"
+        ],
+        "result": true
+    },
+    {
+        "read": {
+            "<read <BVV 18446744071663774408>>": [[1, 0, 28], 3],
+            "<__add__ <read <__add__ <read <__add__ <read <__add__ <read <read <__add__ <read <BVV 18446744071641728584>>, <BVV 64>>>>, <BVV 1232>>>, <BVV 64>>>, <BVV 8>>>, <BVV 80>>": [[1, 0, 28], 3]
+        },
+        "write": [
+            "<__add__ <read <__add__ <read <__add__ <read <read <__add__ <read <BVV 18446744071641728584>>, <BVV 64>>>>, <BVV 1232>>>, <BVV 64>>>, <BVV 80>>",
+            "<__add__ <read <__add__ <read <__add__ <read <__add__ <read <read <__add__ <read <BVV 18446744071641728584>>, <BVV 64>>>>, <BVV 1232>>>, <BVV 64>>>, <BVV 8>>>, <BVV 80>>"
+        ],
+        "result": false
+    },
+    {
+        "read": {
+            "<__add__ <read <__add__ <read <__add__ <read <__add__ <read <__add__ <read <__add__ <read <__add__ <BVS userClient, 64>, <BVV 352, 0>>>, <BVV 24, 0>>>, <BVV 216, 0>>>, <BVV 304, 0>>>, <BVV 8, 0>>>, <BVV 232, 0>>>, <__lshift__ <ZeroExt <BVV 32, 0>, <Concat <Extract <BVV 32743, 0>, <BVV 32736, 0>, <BVS inp_d0006600, 32768>>, <Extract <BVV 32751, 0>, <BVV 32744, 0>, <BVS inp_d0006600, 32768>>, <Extract <BVV 32759, 0>, <BVV 32752, 0>, <BVS inp_d0006600, 32768>>, <Extract <BVV 32767, 0>, <BVV 32760, 0>, <BVS inp_d0006600, 32768>>>>, <BVV 3, 64>>>": [[4, 0, 0, 0, 0], 4]
+        },
+        "write": [
+            "<__add__ <read <__add__ <read <__add__ <read <__add__ <read <__add__ <read <__add__ <read <__add__ <BVS userClient, 64>, <BVV 352, 0>>>, <BVV 24, 0>>>, <BVV 216, 0>>>, <BVV 304, 0>>>, <BVV 8, 0>>>, <BVV 232, 0>>>, <BVV 0, 0>>"
+        ],
+        "result": true
+    }
+]

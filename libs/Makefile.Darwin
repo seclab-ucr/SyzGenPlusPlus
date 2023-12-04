@@ -1,0 +1,21 @@
+
+# nvram boot-args="amfi_get_out_of_my_way=0x1"
+# jtool2: http://www.newosxbook.com/tools/jtool.html
+# ldid: http://www.saurik.com/id/8
+# brew install ldid
+
+all: testService registry hello
+
+testService: testService.c ent.plist
+	gcc $< -o $@ -framework IOKit -Wno-deprecated-declarations
+	ldid -Sent.plist testService
+	../jtool2/jtool2 --sign testService --inplace
+
+registry: registry.c
+	gcc $< -o $@ -framework IOKit -framework CoreFoundation
+
+hello: hello_world.c
+	gcc $< -o $@
+
+clean:
+	rm -f *.o testService registry hello

@@ -1,0 +1,47 @@
+{
+    "int NF_HOOK(struct net *, struct sk_buff *, struct net_device *, struct net_device *, int (*)(struct net *, struct sock *, struct sk_buff *), struct sock *, unsigned int, uint8_t);": [
+        "NF_HOOK", "(struct net*, struct sk_buff*, struct net_device*, struct net_device*, (struct net*, struct sock*, struct sk_buff*) -> int*, struct sock*, unsigned int, uint8_t) -> int"
+    ],
+    "static int ecb_crypt(struct skcipher_request *, void (*)(struct bf_ctx *, u8 *, const u8 *), void (*)(struct bf_ctx *, u8 *, const u8 *));": [
+        "ecb_crypt", "(struct skcipher_request*, (struct bf_ctx*, uint8_t*, uint8_t*) -> void*, (struct bf_ctx*, uint8_t*, uint8_t*) -> void*) -> int"
+    ],
+    "int nested_vmx_hardware_setup(int (**)(struct kvm_vcpu *));": [
+        "nested_vmx_hardware_setup", "((struct kvm_vcpu*) -> int**) -> int"
+    ],
+    "static void anubis_crypt(u32 (*)[4], u8 *, const u8 *, const int);": [
+        "anubis_crypt", "(uint32_t[4]*, uint8_t*, uint8_t*, int) -> void"
+    ],
+    "int devm_of_clk_add_hw_provider(struct device *, struct clk_hw *(*)(struct of_phandle_args *, void *), void *);": [
+        "devm_of_clk_add_hw_provider", "(struct device*, (struct of_phandle_args*, void*) -> struct clk_hw**, void*) -> int"
+    ],
+    "void tpg_calc_text_basep(struct tpg_data *, u8 *(*)[2], unsigned int, u8 *);": [
+        "tpg_calc_text_basep", "(struct tpg_data*, uint8_t*[2]*, unsigned int, uint8_t*) -> void"
+    ],
+    "static int macsec_offload(int (* const)(struct macsec_context *), struct macsec_context *);": [
+        "macsec_offload", "((struct macsec_context*) -> int*, struct macsec_context*) -> int"
+    ],
+    "static int slow_copy(struct vringh *, void *, const void *, bool (*)(struct vringh *, u64, size_t *, struct vringh_range *, bool (*)(struct vringh *, u64, struct vringh_range *)), bool (*)(struct vringh *, u64, struct vringh_range *), struct vringh_range *, int (*)(const struct vringh *, void *, const void *, size_t));": [
+        "slow_copy", "(struct vringh*, void*, void*, (struct vringh*, uint64_t, size_t*, struct vringh_range*, (struct vringh*, uint64_t, struct vringh_range*) -> bool*) -> bool*, (struct vringh*, uint64_t, struct vringh_range*) -> bool*, struct vringh_range*, (struct vringh*, void*, void*, size_t) -> int*) -> int"
+    ],
+    "static int insert_rule(struct landlock_ruleset * const, struct landlock_object * const, const struct landlock_layer (* const)[], size_t);": [
+        "insert_rule", "(struct landlock_ruleset*, struct landlock_object*, struct landlock_layer[]*, size_t) -> int"
+    ],
+    "void *xa_load(struct xarray *, unsigned long);": [
+        "xa_load", "(struct xarray*, unsigned long) -> void*"
+    ],
+    "struct intel_uncore_type **intel_uncore_generic_init_uncores(enum uncore_access_type, int);": [
+        "intel_uncore_generic_init_uncores", "(int, int) -> struct intel_uncore_type**"
+    ],
+    "char *stpcpy(char * restrict, const char * restrict);": [
+        "stpcpy", "(char*, char*) -> char*"
+    ],
+    "int (*ax25_protocol_function(unsigned int))(struct sk_buff *, ax25_cb *);": [
+        "ax25_protocol_function", "(struct sk_buff*, TOP*) -> (unsigned int) -> int*"
+    ],
+    "179:    int irq_bypass_register_consumer(struct irq_bypass_consumer *);": [
+        "irq_bypass_register_consumer", "(struct irq_bypass_consumer*) -> int"
+    ],
+    "158:      int (*ax25_protocol_function(unsigned int))(struct sk_buff *, ax25_cb *);": [
+        "ax25_protocol_function", "(struct sk_buff*, TOP*) -> (unsigned int) -> int*"
+    ]
+}
